@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Teams</h1>
+<%= link_to "New team", new_team_path %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, team_path(team) %></td>
+        <td><%= button_to "Delete", team, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

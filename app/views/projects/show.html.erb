@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @project %>
+
+<div>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+  <%= link_to "Back to projects", projects_path %>
+
+  <%= button_to "Destroy this project", @project, method: :delete %>
+</div>
+
+<%= form_with(url: add_members_project_path)  do |form| %>
+  <%= form.select(:member_ids, Member.all.collect {|m| [ m.first_name, m.id ] }, 
+                  {}, 
+                  { :multiple => true, class: 'select2', placeholder: 'Add members'}) %>
+
+  <%= form.submit %>
+<% end  %>
+
+<br>
+<br>
+<h3>Project Members</h3>
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @project.members.each do |member| %>
+      <tr>
+        <td><%= member.full_name %></td>
+        <td><%= link_to 'remove', remove_member_project_path(@project, member), method: :post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

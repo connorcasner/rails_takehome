@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<%= link_to "New project", new_project_path %>
+
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project) %></td>
+        <td><%= button_to "Delete", project, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

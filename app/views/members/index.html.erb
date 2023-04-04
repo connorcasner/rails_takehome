@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Members</h1>
+
+<%= link_to "New member", new_member_path %>
+
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <td>Full Name</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Country</td>
+      <td>Teams</td>
+      <td</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= link_to member.full_name, member_path(member) %></td>
+        <td><%= member.city %></td>
+        <td><%= member.state %></td>
+        <td><%= member.country %></td>
+        <td>
+          <% member.teams.each do |team| %>
+            <%= link_to team.name, team_path(team) %>
+          <% end %>
+        </td>
+        <td><%= button_to "Delete", member, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
