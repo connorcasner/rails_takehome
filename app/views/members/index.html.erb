@@ -29,6 +29,12 @@
             <%= link_to team.name, team_path(team) %>
           <% end %>
         </td>
+
+        <td>
+          <% member.projects.each do |project| %>
+            <%= link_to project.name, project_path(project) %>
+          <% end %>
+        </td>
         <td><%= button_to "Delete", member, method: :delete %></td>
       </tr>
     <% end %>

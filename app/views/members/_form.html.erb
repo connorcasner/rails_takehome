@@ -36,7 +36,13 @@
     <%= form.text_field :country %>
   </div>
   <div>
+    <%= form.label :team_ids %>
     <%= form.collection_select(:team_ids, Team.all, :id, :name, {}, { multiple: true, class: 'select2' }) %>
+  </div>
+
+  <div>
+    <%= form.label :project_ids %>
+    <%= form.collection_select(:project_ids, Project.all, :id, :name, {}, { multiple: true, class: 'select2' }) %>
   </div>
 
   <div>

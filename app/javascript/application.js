@@ -7,6 +7,6 @@ import 'select2'
 import Rails from "@rails/ujs"
 Rails.start()
 
-$(document).ready(function() {
-    $('.select2').select2();
-});
+document.addEventListener("turbo:load", async () => {
+  $('.select2').select2();
+})
