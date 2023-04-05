@@ -64,13 +64,13 @@ class ProjectsController < ApplicationController
       @project.project_members.create_or_find_by(member_id: member.id)
     end
 
-    redirect_to team_url(@project), notice: "Team was successfully updated."
+    redirect_to project_url(@project), notice: "Team was successfully updated."
   end
 
   def remove_member
     @project_member = @project.project_members.find_by_member_id(params[:member_id])
     @project_member.destroy
-    redirect_to team_url(@project), notice: "Team member was successfully removed."
+    redirect_to project_url(@project), notice: "Team member was successfully removed."
   end
 
   private
